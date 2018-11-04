@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <title>Deep Sea Trivia</title>
+</head>
+<body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <h1>Welcome To Molly's Super Awesome Trivia Game</h1>
+          <p>Try to choose the correct anwser before the time runs out!</p>
+          <p>Click the button below to begin the game.</p>
+          <button id="startBtn">Trivia Trivia Trivia</button>
+        </div>
+    </div>
+
+    <div class="whole" id="block">
+        <div class="top" id="top1" style="display: none">
+            <h2 id="time"></h2>
+        <h2 class="top" id="question" style="display: block">
+            
+        </h2>
+        </div>
+        <div class="top" id="revealCorrect"style="display: none" >
+            <h1>Well Done!</h1>
+
+        </div>
+        <div class="top" id="revealIncorrect"style="display: none" >
+            <h1>Nope</h1>
+        </div>
+        <div class="top" id="notime"style="display: none" >
+            <h1>Out of Time!</h1>
+        </div>
+        <div class="top" id="results"style="display: none" >
+            <h1>How'd you do?</h1>
+        </div>
+
+        <div id="answers" class="bottom" style="display: block">
+        <div id="answer1" class="ans">
+        </div>
+        <div id="answer2" class="ans">
+        </div>
+        <div id="answer3" class="ans">
+        </div>
+        <div id="answer4" class="ans">
+        </div>
+        </div>
+
+        <div id="show" class="bottom" style="display: none">
+        <div id="showanswer">
+            <h3 id="showanswer1"> </h3>
+        </div>
+        <p id="picblock"><img id="pic" src="" alt=""></p>
+        </div>
+        <div id="end" class="bottom" style="display: none">
+            <h2 id="C">Correct: </h2>
+            <h2 id="I">Incorrect: </h2>
+            <button id="tryAgain">
+                Try Again!
+            </button>
+        </div>
+      
+    </div>
+    <script src="assets/javascript/app.js"></script>
+ </body>
+</html>

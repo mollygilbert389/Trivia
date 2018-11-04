@@ -1,0 +1,257 @@
+body {
+    background: url(../images/background.png);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.container {
+    margin: 5% auto;
+    width: 70%;
+    height: 575px;
+    border: 10px solid #0086F1;
+    background: white;
+}
+
+#title {
+    margin: 40px auto 20px auto;
+    height: 100px;
+    width: 100%;
+    font-size: 72px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#timecont {
+    margin: 0 auto;
+    height: 50px;
+    padding-top: 18px;
+    width: 50%;
+    text-align: center;
+    font-size: 24px;
+}
+
+#gameover {
+    margin: 0 auto;
+    height: 50px;
+    padding-top: 18px;
+    width: 50%;
+    text-align: center;
+    font-size: 36px;
+    display: none;
+    font-weight: bold;
+}
+
+#question {
+    margin: 15px auto 10px auto;
+    height: 50px;
+    width: 95%;
+}
+
+#qtxt {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.bottom {
+    height: 200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#right{
+    display: none;
+    text-align: center;
+}
+
+#wrong {
+    display:none;
+    text-align: center;
+}
+
+#wrongtxt {
+    text-align: center;
+    font-size: 22px;
+}
+
+#picture {
+    height:100%;
+    margin: 0 auto;
+    justify-content: center;
+    display: inline-block;
+}
+
+#wrongpicture {
+    height:100%;
+    margin: 10px auto;
+    justify-content: center;
+    display: inline-block;
+}
+
+.holder{
+    margin: 0 auto;
+    max-width: 300px;
+}
+.answers{
+    height: 75px;
+    width: 80%;
+    border: 2px solid black;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.answers:hover {
+    background: lightblue;
+}
+
+.txt{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+    margin-top: 25px;
+}
+
+#rightside {
+    height: 100%;
+    width: 49%;
+    float: right;
+    position: relative;
+}
+
+#leftside {
+    height: 100%;
+    width: 49%;
+    float: left;
+    position: relative;
+}
+
+
+#choice1 {
+    position:  absolute;
+    top: 0;
+    left: 20px;
+}
+
+#choice2 {
+    position:  absolute;
+    bottom: 0;
+    left: 20px;
+}
+
+#choice3 {
+    position:  absolute;
+    top: 0;
+    right: 20px;
+}
+
+#choice4 {
+    position:  absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+#end {
+    display: none;
+}
+
+#result {
+    width: 80%;
+    height: 75px;
+    margin: 20px auto;
+}
+
+.results {
+    text-align: center;
+    width: 100%;
+    margin: 15px auto 0 auto;
+    font-size: 20px;
+}
+
+.btn-end{
+    height: 50px;
+    width: 200px;
+    margin: 25px 20px 0 20px;
+    border: 5px solid black;
+    background: #0086F1;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.center {
+    width: 500px;
+    height: 50px;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+        border: none;
+    }
+
+    #title{
+        height: 150px;
+    }
+
+    #qtxt{
+        font-size: 18px;
+    }
+
+    #timecont{
+        font-size: 14px;
+        width: 95%;
+        height: 20px;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    #picture {
+        max-height: 150px;
+    }
+
+    #wrongpicture {
+        max-height: 150px;
+    }
+
+    .bottom {
+        height: 150px;
+    }
+    .answers {
+        height: 35px;
+        vertical-align: middle;
+    }
+    .txt{
+        font-size: 16px;
+        margin-top: 0;
+        vertical-align: middle;
+    }
+
+    #rightside {
+        height: 70%;
+    }
+    
+    #leftside {
+        height: 70%;
+    }
+
+    .center{
+        margin-top: 30px;
+        height: 120px;
+        width: 200px;
+    }
+
+    .btn-end {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .answers h1 {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+
+
+}
