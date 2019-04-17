@@ -1,125 +1,57 @@
 body {
-    background: url("https://crain-platform-aac-prod.s3.amazonaws.com/s3fs-public/TheKrakenRum_Chapter109_0.jpg") no-repeat center center fixed; 
+    background: url("./triviabackground.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     text-align: center;
+    font-family: 'Crimson Text', serif;
 }
 
-.modal {
-  display: block;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  color: white;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  height: 70%;
-  display: block;
-  background-color: black;
-  margin: 3% auto;
-  margin-top:0px;
-  margin-bottom:0px;
-  padding: 46px;
-  top:20px;
-  width: 65%;
-  text-align: center;
-  position: relative;
-
-}
-
-.whole{
-    margin: 3% auto;
-    width: 80%;
-    min-height: 600px;
-    border: 1px solid black;
-    background: white;
-    opacity: .85;
-
-}
-.bottom{
-    margin: 0px;
-    width: 100%;
-    height: 400px;
-    background: white;
-}
-#timer{
-    width: 90%;
-    height: 50px;
-    margin: 5%;
-    margin-top: 10px;
-    padding-top: 0px;
-    margin-bottom: -10px;
+#wrapper{
+    background-color: rgba(0, 0, 0, 0.856);
+    margin: auto;
+    width: 75%;
+    height: 500px;
+    margin-top: 7%;
+    color: white;
+    border-radius: 8px;
     text-align: center;
-}
-.top{
-    width: 90%;
-    height: 100px;
-    margin: 5%;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    text-align: center;
-
-}
-#end{
-    text-align:center;
-}
-#answer1{
-    width: 30%;
-    margin:4%;
-    float:left;
-    margin-left: 10%;
-    text-align: center;
-    border: 5px solid black;
-    line-height: 50px;
-}
-#answer2{
-    width: 30%;
-    margin:4%;
-    float:right;
-    margin-right: 10%;
-   text-align: center;
-   border: 5px solid black;
-   line-height: 50px;
-}
-#answer3{
-    width: 30%;
-    margin:4%;
-    float:left;
-    margin-left: 10%;
-    text-align: center;
-    border: 5px solid black;
-    line-height: 50px;
-}
-#answer4{
-    width: 30%;
-    margin:4%;
-    float:right;
-    margin-right: 10%;
-    text-align: center;
-    border: 5px solid black;
-    line-height: 50px;
-}
-#pic{
-    position: relative;
-    height:100%;
-}
-p{
-    text-align: center;
-height: auto;
-}
-#show{
-    text-align: center
+    justify-content: center;
+    padding-top: 10px;
+    font-family: 'Crimson Text', serif;
 }
 
-#picblock{
-height: 400px;
-width: auto;
+#subwrapper{
+    justify-content: center;
+    margin-top: 5%;
+    font-family: 'Crimson Text', serif;
+}
+
+button {
+    height: 55px;
+    width: 200px;
+    background-color: rgb(71, 152, 167);
+    font-size: 18px;
+    color: white;
+    border-radius: 8px;
+    font-family: 'Crimson Text', serif;
+    border-color:  rgb(71, 152, 167);
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 0;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: rgb(16, 76, 87);
+    border-color: rgb(16, 76, 87);
+}
+
+@media only screen and (max-width: 768px) {
+    #wrapper{
+        height: 85%;
+        padding-bottom: 20px;
+    }
 }

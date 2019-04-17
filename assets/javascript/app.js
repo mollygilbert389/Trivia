@@ -1,269 +1,164 @@
-var x;
-var trivia = {
-    
-    set:[ {
-      question1: "What is the primary food source for coral reefs?",
-      answers: ["Plankton", "Sunlight", "Human Souls", "Small Fish"],
-      correct: 0,
-    },
-    {
-        question1: "Plankton largely reside in what part of the ocean?",
-        answers: ["Twighlight Zone", "Sunlight Zone", "Thermocline Zone", "Pelagic Zone"],    
-        correct: 2,
-
-      },
-      {
-        question1: "The Bering Strait lies between which two continents?",
-        answers: ["Asia & Africa", "North America & Asia", "Europe & Africa", "North America & South America"],    
-        correct: 1,
-
-      },
-      {
-        question1: "What is the largest fish in the world?",
-        answers: ["Hagfish", "Blue Whale", "Dolphin", "Whale Shark"],    
-        correct: 3,
-
-      },
-       {
-        question1: "How many different ways can a marine worm species reproduce?",
-        answers: ["None", "1", "18", "5"],    
-        correct: 2,
-
-      },
-       {
-        question1: "What is considered Deep Sea?",
-        answers: ["100ft","350ft","650ft", "1000ft"],    
-        correct: 2,
-        
-      },
-      {
-        question1: "Which of these is considered the deepest dwelling fish?",
-        answers: ["clownfish","Snailfish","tuna","sturgeon"],    
-        correct: 1,
-        
-      },
-      {
-        question1: "How much of breathable oxygen is produced by the ocean?",
-        answers: ["10%","30%","50%","70%"],    
-        correct: 3,
-        
-      },
-      {
-        question1: "About how much of the worlds oceans have been explored?",
-        answers: ["5%","10%","30%","85%"],    
-        correct: 0,
-        
-      },
-      {
-        question1: "About how fast can bluefin tuna swim?",
-        answers: ["11mph","28mph","32mph","43mph"],    
-        correct: 3,
-        
-      },
-    ],
-
-
-
-
-    startgif:"#",
-    correctgifs:["correct1.gif","correct2.gif","correct3.gif","correct4.gif","correct5.gif"],
-    incorrectgifs:["Incorrect1.gif","Incorrect2.gif","Incorrect3.gif","Incorrect4.gif","Incorrect5.gif","Incorrect6.gif","Incorrect7.gif","Incorrect8.gif"],
-total:[],
-gifs:[],
-num: Math.floor(Math.random()*6),
-corgifs: Math.floor(Math.random()*5),
-ingifs: Math.floor(Math.random()*8),
-numberCorrect:0,
-numberIncorrect:0,
-timeleft:10,
-tryAgain: document.getElementById("tryAgain"),
-question: document.getElementById("question"),
-answers1: document.getElementById("answer1"),
-answers2: document.getElementById("answer2"),
-answers3: document.getElementById("answer3"),
-answers4: document.getElementById("answer4"),
-block: document.getElementById("block"),
-answerBlock: document.getElementById("answers"),
-top: document.getElementById("top1"),
-modal: document.getElementById("myModal"),
-btn: document.getElementById("startBtn"),
-show: document.getElementById("show"),
-revealCorrect: document.getElementById("revealCorrect"),
-revealIncorrect: document.getElementById("revealIncorrect"),
-pic: document.getElementById("pic"),
-time: document.getElementById("time"),
-outoftime: document.getElementById("notime"),
-results: document.getElementById("results"),
-end: document.getElementById("end"),
-showa: document.getElementById("showanswer1"),
-endGame: function(){
-  trivia.top.style.display="none";
-  trivia.answerBlock.style.display="none";
-  trivia.results.style.display="block";
-  trivia.end.style.display="block";
-  document.getElementById("C").innerHTML+=trivia.numberCorrect;
-  document.getElementById("I").innerHTML+=trivia.numberIncorrect;
-
-  clearInterval(x);
-
-},
-
-play: function(){
-  trivia.timeleft=15;
-  trivia.top.style.display="block";
-   trivia.answerBlock.style.display="block";
-   trivia.revealCorrect.style.display="none";
-   trivia.outoftime.style.display="none";
-   trivia.revealIncorrect.style.display="none";
-   trivia.show.style.display="none";
-   trivia.end.style.display="none";
-   trivia.results.style.display="none";
-
-  if(trivia.total.length>10)
-  {
-      trivia.endGame();
-  }
-  else{
-  trivia.num= Math.floor(Math.random()*10);
-  
-  while(trivia.total.indexOf(trivia.num)>=0){
-      trivia.num= Math.floor(Math.random()*10);
-  }
-
-      clearInterval(x);
-  x = setInterval(function() {
-      trivia.timeleft--;
-        
-          document.getElementById("time").innerHTML = "Time left:"+trivia.timeleft;
-          
-          if (trivia.timeleft < 0) {
-              clearInterval(x);
-              trivia.outOfTime();
-          }
-      }, 1000);
-  trivia.print(trivia.set[trivia.num]);
-  trivia.total.push(trivia.num);
-  }
-},
-
-
-outOfTime: function(){
-trivia.outoftime.style.display="block";
-trivia.top.style.display="none";
-trivia.answerBlock.style.display="none";
-//trivia.revealIncorrect.style.display="block";
-trivia.show.style.display="block";
-while(trivia.gifs.indexOf(trivia.ingifs)>=0){
-  console.log("boo");
-
-  trivia.ingifs= Math.floor(Math.random()*8);
-}
-
-document.getElementById("pic").src = trivia.incorrectgifs[trivia.ingifs];
-trivia.gifs.push(trivia.ingifs);
-
-// document.getElementById("pic").src = ;
-document.getElementById("showanswer1").innerHTML = "The Correct Answer is: "+trivia.set[trivia.num].answers[trivia.set[trivia.num].correct];
-trivia.numberIncorrect++;
-setTimeout(trivia.play,2000);
-},
-
-
-print: function(a){
-  trivia.time.innerHTML="Time left:"+trivia.timeleft;
-  trivia.question.textContent=a.question1;
-  trivia.answers1.textContent=a.answers[0];
-  trivia.answers2.textContent=a.answers[1];
-  trivia.answers3.textContent=a.answers[2];
-  trivia.answers4.textContent=a.answers[3];
-},
-
-
-checkAnswer: function(number){
-   trivia.top.style.display="none";
-   trivia.answerBlock.style.display="none";
-   trivia.show.style.display="block";
-  trivia.timeleft=10;
-if(trivia.set[trivia.num].correct==number){
-  trivia.revealCorrect.style.display="block";
-  trivia.show.style.display="block";
-
-  while(trivia.gifs.indexOf(trivia.corgifs)>=0){
-      console.log("yay");
-      trivia.corgifs= Math.floor(Math.random()*10);
-  }
-  trivia.gifs.push(trivia.corgifs);
-
-  document.getElementById("pic").src = trivia.correctgifs[trivia.corgifs];
-
-
-  document.getElementById("showanswer1").innerHTML = "The Correct Answer is: "+trivia.set[trivia.num].answers[trivia.set[trivia.num].correct];
-  trivia.numberCorrect++;
- setTimeout(trivia.play,3000);
-  
-}
-else{
-  trivia.revealIncorrect.style.display="block";
-  trivia.show.style.display="block";
-  while(trivia.gifs.indexOf(trivia.ingifs)>=0){
-      console.log("boo");
-
-      trivia.ingifs= Math.floor(Math.random()*8);
-  }
-
-  document.getElementById("pic").src = trivia.incorrectgifs[trivia.ingifs];
-  trivia.gifs.push(trivia.ingifs);
-
-// document.getElementById("pic").src = ;
-document.getElementById("showanswer1").innerHTML = "The Correct Answer is: "+trivia.set[trivia.num].answers[trivia.set[trivia.num].correct];
-
-trivia.numberIncorrect++;
-
-  setTimeout(trivia.play,3000);
-
-
-}
-
-},
-
-
-
-  
-};
-
-trivia.btn.addEventListener("click", function() {
-  trivia.modal.style.display = "none";
-  trivia.play();
-  
-
-});
-
-trivia.answers1.addEventListener("click", function() {
-  trivia.timeleft=0;
-
-  trivia.checkAnswer(0);
-});
-
-trivia.answers2.addEventListener("click", function() {
-  trivia.timeleft=0;
-
-  trivia.checkAnswer(1);
-
-});
-
-trivia.answers3.addEventListener("click", function() {
-  trivia.timeleft=0;
-
-  trivia.checkAnswer(2);
-
-});
-
-trivia.answers4.addEventListener("click", function() {
-  trivia.timeleft=0;
-
-  trivia.checkAnswer(3);
-});
-trivia.tryAgain.addEventListener("click", function(){
-  document.location.reload();
-
+$("#startTrivia").on('click',function(){
+  $("#startTrivia").remove();
+  $('#directions').remove();
+  game.loadQuestion();
 })
+
+$(document).on('click', '.anwser-button', function(e){
+  game.clicked(e);
+})
+
+$(document).on('click', '#reset', function(){
+  game.reset();
+})
+
+var questions = [{
+
+        question: "What is the primary food source for coral reefs?",
+        answers: ["Plankton", "Sunlight", "Human Souls", "Small Fish"],
+        correctAnswer: "Plankton",
+      },
+      {
+          question: "Plankton largely reside in what part of the ocean?",
+          answers: ["Twighlight Zone", "Sunlight Zone", "Thermocline Zone", "Pelagic Zone"],    
+          correctAnswer: "Thermocline Zone",
+  
+        },
+        {
+          question: "The Bering Strait lies between which two continents?",
+          answers: ["Asia & Africa", "North America & Asia", "Europe & Africa", "North America & South America"],    
+          correctAnswer: "North America & Asia",
+  
+        },
+        {
+          question: "What is the largest fish in the world?",
+          answers: ["Hagfish", "Blue Whale", "Dolphin", "Whale Shark"],    
+          correctAnswer: "Whale Shark",
+  
+        },
+         {
+          question: "How many different ways can a marine worm species reproduce?",
+          answers: ["None", "1", "18", "5"],    
+          correctAnswer: "18",
+  
+        },
+         {
+          question: "What is considered Deep Sea?",
+          answers: ["100ft","350ft","650ft", "1000ft"],    
+          correctAnswer: "650ft",
+          
+        },
+        {
+          question: "Which of these is considered the deepest dwelling fish?",
+          answers: ["clownfish","Snailfish","tuna","sturgeon"],    
+          correctAnswer: "Snailfish",
+          
+        },
+        {
+          question: "How much of breathable oxygen is produced by the ocean?",
+          answers: ["10%","30%","50%","70%"],    
+          correctAnswer: "70%",
+          
+        },
+        {
+          question: "About how much of the worlds oceans have been explored?",
+          answers: ["5%","10%","30%","85%"],    
+          correctAnswer: "5%",
+          
+        },
+        {
+          question: "About how fast can bluefin tuna swim?",
+          answers: ["11mph","28mph","32mph","43mph"],    
+          correctAnswer: "43mph",
+      }]
+
+  var game = {
+    questions: questions,
+    currentQuestion: 0,
+    counter: 10,
+    correct: 0,
+    incorrect: 0,
+    unanswered: 0,
+    
+    countdown: function(){
+      game.counter--;
+      $('#counter').html(game.counter)
+      if(game.counter<=0) {
+        console.log("time up!")
+        game.timeUp();
+      }
+    },
+    loadQuestion: function() {
+      timer = setInterval(game.countdown,1000);
+      $("#subwrapper").html("<h2 id='counter'>10</h2>")
+      $("#subwrapper").append('<h2>' +questions[game.currentQuestion].question+ '</h2>')
+      for (var i=0;i<questions[game.currentQuestion].answers.length; i++) {
+        $("#subwrapper").append('<button class="anwser-button" id="button-'+i+'" data-name="'+questions[game.currentQuestion].answers[i]+'">'+questions[game.currentQuestion].answers[i]+'</button>')
+      }
+
+    },
+    nextQuestion: function() {
+      game.counter = 10;
+      $("#counter").html(game.counter);
+      game.currentQuestion++;
+      game.loadQuestion();
+    },
+    timeUp: function() {
+      game.incorrect++
+      clearInterval(timer)
+      $("#subwrapper").html("<h2> Ran out of time! Sucks!</h2>")
+      $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
+      if (game.currentQuestion==questions.length-1){
+        setTimeout(game.results,1*1000)
+      } else {
+        setTimeout(game.nextQuestion,1*1000)
+      } 
+    },
+    results: function(){
+      clearInterval(timer);
+      $("#subwrapper").html("You've completed this task")
+      $("#subwrapper").append("<h3> Right Awnsers: " + game.correct + "</h3>")
+      $("#subwrapper").append("<h3> Wrong Awnsers: " + game.incorrect + "</h3>")
+      $("#subwrapper").append("<button id='reset'>Play Again?</button")
+    },
+    clicked: function(e) {
+      clearInterval(timer);
+      if($(e.target).data("name")==questions[game.currentQuestion].correctAnswer){
+        game.anwseredCorrectly();
+      } else {
+        game.anwseredIncorrectly();
+      }
+    },
+    anwseredCorrectly: function() {
+      console.log("Right!")
+      clearInterval(timer);
+      game.correct++
+      $("#subwrapper").html("<h2> That's right. You think you know your stuff, huh?</h2>")
+      if (game.currentQuestion==questions.length-1){
+        setTimeout(game.results,1*1000)
+      } else {
+        setTimeout(game.nextQuestion,1*1000)
+      }
+
+    },
+    anwseredIncorrectly: function() {
+      console.log("Wrong!")
+      clearInterval(timer);
+      game.incorrect++
+      $("#subwrapper").html("<h2>WRONG!</h2>")
+      $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
+      if (game.currentQuestion==questions.length-1){
+        setTimeout(game.results,1*1000)
+      } else {
+        setTimeout(game.nextQuestion,1*1000)
+      }
+    },
+    reset: function() {
+      console.log("I was clicked")
+      game.currentQuestion = 0;
+      game.counter = 10;
+      game.correct= 0;
+      game.incorrect =0;
+      game.loadQuestion()
+    }
+  }
