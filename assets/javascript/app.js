@@ -75,7 +75,7 @@ var questions = [{
   var game = {
     questions: questions,
     currentQuestion: 0,
-    counter: 10,
+    counter: 30,
     correct: 0,
     incorrect: 0,
     unanswered: 0,
@@ -89,7 +89,7 @@ var questions = [{
       }
     },
     loadQuestion: function() {
-      timer = setInterval(game.countdown,1000);
+      timer = setInterval(game.countdown,3000);
       $("#subwrapper").html("<h2 id='counter'>10</h2>")
       $("#subwrapper").append('<h2>' +questions[game.currentQuestion].question+ '</h2>')
       for (var i=0;i<questions[game.currentQuestion].answers.length; i++) {
@@ -98,7 +98,7 @@ var questions = [{
 
     },
     nextQuestion: function() {
-      game.counter = 10;
+      game.counter = 30;
       $("#counter").html(game.counter);
       game.currentQuestion++;
       game.loadQuestion();
@@ -109,9 +109,9 @@ var questions = [{
       $("#subwrapper").html("<h2> Ran out of time! Sucks!</h2>")
       $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*1000)
+        setTimeout(game.results,1*3000)
       } else {
-        setTimeout(game.nextQuestion,1*1000)
+        setTimeout(game.nextQuestion,1*3000)
       } 
     },
     results: function(){
@@ -135,9 +135,9 @@ var questions = [{
       game.correct++
       $("#subwrapper").html("<h2> That's right. You think you know your stuff, huh?</h2>")
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*1000)
+        setTimeout(game.results,1*3000)
       } else {
-        setTimeout(game.nextQuestion,1*1000)
+        setTimeout(game.nextQuestion,1*3000)
       }
 
     },
@@ -148,15 +148,15 @@ var questions = [{
       $("#subwrapper").html("<h2>WRONG!</h2>")
       $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*1000)
+        setTimeout(game.results,1*3000)
       } else {
-        setTimeout(game.nextQuestion,1*1000)
+        setTimeout(game.nextQuestion,1*3000)
       }
     },
     reset: function() {
       console.log("I was clicked")
       game.currentQuestion = 0;
-      game.counter = 10;
+      game.counter = 30;
       game.correct= 0;
       game.incorrect =0;
       game.loadQuestion()
