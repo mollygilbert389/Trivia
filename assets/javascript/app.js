@@ -75,7 +75,7 @@ var questions = [{
   var game = {
     questions: questions,
     currentQuestion: 0,
-    counter: 30,
+    counter: 20,
     correct: 0,
     incorrect: 0,
     unanswered: 0,
@@ -89,8 +89,8 @@ var questions = [{
       }
     },
     loadQuestion: function() {
-      timer = setInterval(game.countdown,3000);
-      $("#subwrapper").html("<h2 id='counter'>10</h2>")
+      timer = setInterval(game.countdown,2000);
+      $("#subwrapper").html("<h2 id='counter'>20</h2>")
       $("#subwrapper").append('<h2>' +questions[game.currentQuestion].question+ '</h2>')
       for (var i=0;i<questions[game.currentQuestion].answers.length; i++) {
         $("#subwrapper").append('<button class="anwser-button" id="button-'+i+'" data-name="'+questions[game.currentQuestion].answers[i]+'">'+questions[game.currentQuestion].answers[i]+'</button>')
@@ -98,7 +98,7 @@ var questions = [{
 
     },
     nextQuestion: function() {
-      game.counter = 30;
+      game.counter = 20;
       $("#counter").html(game.counter);
       game.currentQuestion++;
       game.loadQuestion();
@@ -109,9 +109,9 @@ var questions = [{
       $("#subwrapper").html("<h2> Ran out of time! Sucks!</h2>")
       $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*3000)
+        setTimeout(game.results,1*2000)
       } else {
-        setTimeout(game.nextQuestion,1*3000)
+        setTimeout(game.nextQuestion,1*2000)
       } 
     },
     results: function(){
@@ -135,9 +135,9 @@ var questions = [{
       game.correct++
       $("#subwrapper").html("<h2> That's right. You think you know your stuff, huh?</h2>")
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*3000)
+        setTimeout(game.results,1*2000)
       } else {
-        setTimeout(game.nextQuestion,1*3000)
+        setTimeout(game.nextQuestion,1*2000)
       }
 
     },
@@ -148,15 +148,15 @@ var questions = [{
       $("#subwrapper").html("<h2>WRONG!</h2>")
       $("#subwrapper").append("<h3> The correct anwser is: " + questions[game.currentQuestion].correctAnswer + "</h3>" )
       if (game.currentQuestion==questions.length-1){
-        setTimeout(game.results,1*3000)
+        setTimeout(game.results,1*2000)
       } else {
-        setTimeout(game.nextQuestion,1*3000)
+        setTimeout(game.nextQuestion,1*2000)
       }
     },
     reset: function() {
       console.log("I was clicked")
       game.currentQuestion = 0;
-      game.counter = 30;
+      game.counter = 20;
       game.correct= 0;
       game.incorrect =0;
       game.loadQuestion()
