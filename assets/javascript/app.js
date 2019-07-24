@@ -17,6 +17,7 @@ var questions = [{
         question: "What is the primary food source for coral reefs?",
         answers: ["Plankton", "Sunlight", "Human Souls", "Small Fish"],
         correctAnswer: "Plankton",
+        //         molly's code
       },
       {
           question: "Plankton largely reside in what part of the ocean?",
@@ -64,6 +65,7 @@ var questions = [{
           question: "About how much of the worlds oceans have been explored?",
           answers: ["5%","10%","30%","85%"],    
           correctAnswer: "5%",
+          //         molly's code
           
         },
         {
@@ -89,6 +91,7 @@ var questions = [{
       }
     },
     loadQuestion: function() {
+      //         molly's code
       timer = setInterval(game.countdown,2000);
       $("#subwrapper").html("<h2 id='counter'>20</h2>")
       $("#subwrapper").append('<h2>' +questions[game.currentQuestion].question+ '</h2>')
@@ -116,6 +119,7 @@ var questions = [{
     },
     results: function(){
       clearInterval(timer);
+      //         molly's code
       $("#subwrapper").html("You've completed this task")
       $("#subwrapper").append("<h3> Right Awnsers: " + game.correct + "</h3>")
       $("#subwrapper").append("<h3> Wrong Awnsers: " + game.incorrect + "</h3>")
@@ -150,6 +154,7 @@ var questions = [{
       if (game.currentQuestion==questions.length-1){
         setTimeout(game.results,1*2000)
       } else {
+        //         molly's code
         setTimeout(game.nextQuestion,1*2000)
       }
     },
